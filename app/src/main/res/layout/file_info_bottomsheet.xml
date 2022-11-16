@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/songTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Title"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/md"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/songTitletext"
+        app:layout_constraintTop_toBottomOf="@id/songTitle"
+        android:text="Song name"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/md"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/songAlbumtext"
+        app:layout_constraintTop_toBottomOf="@id/songTitletext"
+        android:text="Album"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/md"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/songAlbumtext1"
+        app:layout_constraintTop_toBottomOf="@id/songAlbumtext"
+        android:text="Album"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/md"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:textSize="18sp"
+        android:id="@+id/songArtisttext"
+        app:layout_constraintTop_toBottomOf="@id/songAlbumtext1"
+        android:text="Artist"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/md"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/songArtisttext1"
+        app:layout_constraintTop_toBottomOf="@id/songArtisttext"
+        android:text="Album"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/md"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/songSizetext"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/songArtisttext1"
+        android:text="Size"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/md"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/songSizetext1"
+
+        app:layout_constraintTop_toBottomOf="@id/songSizetext"
+        android:text="Album"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/md"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:textSize="18sp"
+        android:id="@+id/songDurationText"
+        app:layout_constraintTop_toBottomOf="@id/songSizetext1"
+        android:text="Duration"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/md"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+
+        android:id="@+id/songDurationText1"
+        app:layout_constraintTop_toBottomOf="@id/songDurationText"
+        android:text="Album"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/md"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

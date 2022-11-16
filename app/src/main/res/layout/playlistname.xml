@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/playlistnamee"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--    <EditText-->
+<!--        android:id="@+id/playlistname"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_marginStart="@dimen/sm"-->
+<!--        android:layout_marginEnd="@dimen/sm"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:hint="Playlist Name"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="10dp">
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/artistcard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="6dp"
+        app:cardElevation="8dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/song_row_item"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/black">
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:text="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingVertical="@dimen/md"
+                android:paddingHorizontal="10dp"
+                android:id="@+id/songNumber2"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/titleView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/songNumber2"
+                app:layout_constraintEnd_toStartOf="@id/optionsMenu"
+                android:text="Eko Dydda"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="@dimen/sm"
+                android:paddingTop="@dimen/sm"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                />
+            <TextView
+                android:id="@+id/justaname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/songNumber2"
+                android:text="Time:"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/xx_sm"
+                android:layout_marginStart="@dimen/sm"
+                android:maxLines="1"
+                />
+            <TextView
+                android:id="@+id/durationView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/justaname"
+                android:text="15:30"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/xx_sm"
+                android:layout_marginStart="@dimen/sm"
+                android:maxLines="1"
+                />
+            <TextView
+                android:id="@+id/anothername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/durationView2"
+                android:text="Size:"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/xx_sm"
+                android:layout_marginStart="@dimen/md"
+                android:maxLines="1"
+                />
+            <TextView
+                android:id="@+id/sizeView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/anothername"
+                android:text="15:30"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/xx_sm"
+                android:layout_marginStart="@dimen/sm"
+                android:maxLines="1"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/optionsMenu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/ic_more"
+                android:layout_marginEnd="@dimen/sm"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/white"/>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

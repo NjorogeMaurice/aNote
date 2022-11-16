@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/bottomsheetholder"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/removeSong">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/idelete"
+            android:id="@+id/deleteicon"
+            android:layout_marginStart="@dimen/md"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Remove from playlist"
+            app:layout_constraintStart_toEndOf="@+id/deleteicon"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/md"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
