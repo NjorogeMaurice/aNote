@@ -133,10 +133,7 @@ public class SongAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         databaseHelper = new DatabaseHelper(context);
         ConstraintLayout playnow = bottom.findViewById(R.id.play_now_layout);
         ConstraintLayout playnext = bottom.findViewById(R.id.play_next_layout);
-        ConstraintLayout setAsRingtone = bottom.findViewById(R.id.set_ringtone_layout);
-        ConstraintLayout addToPlaylist = bottom.findViewById(R.id.add_playlist_layout);
         ConstraintLayout addToFavourite = bottom.findViewById(R.id.add_favourite_layout);
-        ConstraintLayout deleteSong = bottom.findViewById(R.id.song_delete_layout);
         ConstraintLayout fileInfo = bottom.findViewById(R.id.file_info_layout);
         ConstraintLayout shareSong = bottom.findViewById(R.id.file_share_layout);
         if(databaseHelper.ifAddedtoFav(songs.get(pos).getTitle())){

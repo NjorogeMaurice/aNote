@@ -7,52 +7,58 @@
     tools:context=".MainActivity"
     android:background="@color/black">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        android:background="@color/black">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/appBarLayout"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintStart_toStartOf="parent">
+
+       <com.google.android.material.appbar.AppBarLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:id="@+id/appBar"
+           android:theme="@style/Theme.ANote"
+           >
+           <androidx.appcompat.widget.Toolbar
+               android:id="@+id/toolbar"
+               android:layout_width="match_parent"
+               android:layout_height="?attr/actionBarSize"
+               app:menu="@menu/search_btn"
+               app:titleTextColor="@color/white" />
+           <TextView
+               android:id="@+id/addsonglabel"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:text="Add Songs"
+               android:textColor="@color/white"
+               android:visibility="gone"/>
+           <ImageView
+               android:id="@+id/closeView"
+               android:layout_width="wrap_content"
+               android:layout_height="?attr/actionBarSize"
+               android:src="@drawable/ic_close"
+               app:titleTextColor="@color/white"
+               android:visibility="gone"/>
+
+       </com.google.android.material.appbar.AppBarLayout>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/menuBarLayout"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/search_btn"
-            app:titleTextColor="@color/white" />
-        <TextView
-            android:id="@+id/addsonglabel"
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Add Songs"
-            android:textColor="@color/white"
-            android:visibility="gone"/>
-        <ImageView
-            android:id="@+id/closeView"
-            android:layout_width="wrap_content"
-            android:layout_height="?attr/actionBarSize"
-            android:src="@drawable/ic_close"
-            app:titleTextColor="@color/white"
-            android:visibility="gone"/>
-
-    </com.google.android.material.appbar.AppBarLayout>
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/menubar"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appbar"
-        android:isScrollContainer="true"
-        android:background="@color/black">
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:id="@+id/menuBar"
+            android:theme="@style/Theme.ANote"
+            >
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/menuitemlayout"
                 android:scrollbarAlwaysDrawHorizontalTrack="true">
@@ -99,227 +105,201 @@
                     app:layout_constraintStart_toEndOf="@+id/album"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </HorizontalScrollView>
+        </com.google.android.material.appbar.AppBarLayout>
 
-
-
-
-<!--        <androidx.appcompat.widget.Toolbar-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="?attr/actionBarSize"-->
-<!--            android:id="@+id/menutoolBar"-->
-<!--            app:menu="@menu/menuitems"-->
-<!--            app:titleTextColor="@color/white" />-->
-
-    </com.google.android.material.appbar.AppBarLayout>
-    <com.google.android.material.appbar.AppBarLayout
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:id="@+id/sorting"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menubar">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/songsTotal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="Songs(0)"
-                android:textColor="@color/white"
-                android:layout_marginStart="@dimen/md"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/sortingBarLayout"
+        app:layout_constraintTop_toBottomOf="@id/menuBarLayout"
+        app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/clickedplaylistname"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text=""
-                android:textColor="@color/white"
-                android:layout_marginStart="@dimen/md"
-                android:visibility="gone"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/playlistTotal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="Songs(20)"
-                android:textColor="@color/white"
-                android:layout_marginStart="@dimen/md"
-                android:visibility="gone"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/ic_sort"
-                android:id="@+id/sorticon"
-                android:layout_marginEnd="@dimen/sm"
-                android:paddingVertical="@dimen/sm"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/ic_baseline_add"
-                android:id="@+id/playlisticon"
-                android:layout_marginEnd="@dimen/sm"
-                android:paddingVertical="@dimen/sm"
-                android:visibility="gone"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/ic_baseline_add"
-                android:id="@+id/addmoresongs"
-                android:layout_marginEnd="@dimen/sm"
-                android:paddingVertical="@dimen/sm"
-                android:visibility="gone"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/delete"
-                android:id="@+id/deleteplaylist"
-                android:layout_marginEnd="@dimen/sm"
-                android:paddingVertical="@dimen/sm"
-                android:visibility="gone"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/playlistView"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sorting"
-        android:background="@color/black">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            app:layout_constraintTop_toTopOf="parent"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/Playlistview"
-            android:layout_marginTop="@dimen/md">
-            <ImageView
-                android:id="@+id/playlistAddIcon"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/ic_playlist_add"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="@dimen/md"
-                android:clickable="true"
-                android:visibility="gone"/>
-            <TextView
-                android:id="@+id/playlistaddtext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add new playlist"
-                android:textSize="@dimen/md"
-                android:textColor="@color/white"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/playlistAddIcon"
-                android:layout_marginStart="@dimen/sm"
-                android:clickable="true"
-                android:visibility="gone"/>
+            android:id="@+id/sortingBar"
+            android:theme="@style/Theme.ANote"
+            >
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/songsTotal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="Songs(0)"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="@dimen/md"/>
 
-   <androidx.recyclerview.widget.RecyclerView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/clickedplaylistname"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:layout_marginStart="@dimen/md"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/playlistTotal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Songs(20)"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="@dimen/md"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/ic_sort"
+                    android:id="@+id/sorticon"
+                    android:layout_marginEnd="@dimen/sm"
+                    android:paddingVertical="@dimen/sm"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/ic_baseline_add"
+                    android:id="@+id/playlisticon"
+                    android:layout_marginEnd="@dimen/sm"
+                    android:paddingVertical="@dimen/sm"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/ic_baseline_add"
+                    android:id="@+id/addmoresongs"
+                    android:layout_marginEnd="@dimen/sm"
+                    android:paddingVertical="@dimen/sm"
+                    android:visibility="gone"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/delete"
+                    android:id="@+id/deleteplaylist"
+                    android:layout_marginEnd="@dimen/sm"
+                    android:paddingVertical="@dimen/sm"
+                    android:visibility="gone"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recyclerview"
-       android:layout_width="0dp"
-       android:layout_height="0dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/playlistView"
-       app:layout_constraintBottom_toTopOf="@id/homeControlWrapper"
+       app:layout_constraintTop_toBottomOf="@+id/sortingBarLayout"
+        android:layout_marginBottom="140dp"
        android:paddingBottom="@dimen/x_sm"
        >
 
    </androidx.recyclerview.widget.RecyclerView>
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:id="@+id/homeControlWrapper"
-      android:layout_width="match_parent"
-      android:layout_height="?attr/actionBarSize"
-      app:layout_constraintBottom_toBottomOf="parent"
-      android:background="@color/black">
-      <TextView
-          android:id="@+id/icAudio"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:drawableStart="@drawable/ic_audiotrack"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintBottom_toBottomOf="parent"
-          android:paddingEnd="@dimen/sm"
-          tools:ignore="RtlSymmetry"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/homeControlWrapper"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/black">
+        <TextView
+            android:id="@+id/icAudio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_audiotrack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingEnd="@dimen/sm"
+            tools:ignore="RtlSymmetry"/>
 
-      <TextView
-          android:id="@+id/homeSongNameView"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:ellipsize="marquee"
-          android:marqueeRepeatLimit="marquee_forever"
-          android:singleLine="true"
-          android:text="Current Playing Song"
-          android:textColor="@color/white"
-          android:textStyle="bold"
-          app:layout_constraintWidth_percent="0.6"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0"
-          app:layout_constraintStart_toEndOf="@id/icAudio"
-          app:layout_constraintTop_toTopOf="parent" />
-      <TextView
-          android:id="@+id/homeSkipPreviousBtn"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          app:layout_constraintEnd_toStartOf="@id/homePlayPauseBtn"
-          app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintWidth_percent="0.1"
-          android:drawableStart="@drawable/ic_skip_previous"
-          />
-      <TextView
-          android:id="@+id/homePlayPauseBtn"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          app:layout_constraintStart_toEndOf="@id/homeSongNameView"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintWidth_percent="0.1"
-          android:drawableStart="@drawable/ic_play_arrow"
-          />
-      <TextView
-          android:id="@+id/homeSkipNextBtn"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          app:layout_constraintStart_toEndOf="@id/homePlayPauseBtn"
-          app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintWidth_percent="0.1"
-          android:drawableStart="@drawable/ic_skip_next"/>
+        <TextView
+            android:id="@+id/homeSongNameView"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            app:layout_constraintEnd_toStartOf="@id/homeSkipPreviousBtn"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="Current Playing Song"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintWidth_percent="0.6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/icAudio"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/homeSkipPreviousBtn"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/homePlayPauseBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="@dimen/sm"
+            app:layout_constraintWidth_percent="0.1"
+            android:drawableStart="@drawable/ic_skip_previous" />
+        <TextView
+            android:id="@+id/homePlayPauseBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/homeSkipNextBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintWidth_percent="0.1"
+            android:layout_marginEnd="@dimen/sm"
+            android:drawableStart="@drawable/ic_play_arrow"
+            />
+        <TextView
+            android:id="@+id/homeSkipNextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintWidth_percent="0.1"
+            android:drawableStart="@drawable/ic_skip_next"/>
 
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/bottomNavigationLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:menu="@menu/bottom_menu"
+            android:id="@+id/bottomNavigation"/>
+    </RelativeLayout>
 
-<!--    Include player view layout-->
+
 
     <include layout="@layout/player_view"/>
 

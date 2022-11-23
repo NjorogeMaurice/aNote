@@ -2,6 +2,7 @@ package com.android.player.anote;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,7 +57,9 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.Player;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.navigation.NavigationBarView;
 import com.jgabrielfreitas.core.BlurImageView;
 
 import java.util.ArrayList;
@@ -104,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
     List<Integer> albumNames = new ArrayList<>();
     private BottomSheetDialog bottomSheetDialog, bottomSheetDialog1;
     int a = 0;
+    private BottomNavigationView bottomNavigationView;
 
 
     private static final int TIME_DELAY = 3000;
@@ -184,9 +188,9 @@ public class MainActivity extends AppCompatActivity {
 
         //views
         //exoPlayer = new ExoPlayer.Builder(this).build();
-        playlisticon = findViewById(R.id.playlistAddIcon);
-        playlisttext = findViewById(R.id.playlistaddtext);
-        playlistadd = findViewById(R.id.playlistView);
+//        playlisticon = findViewById(R.id.playlistAddIcon);
+//        playlisttext = findViewById(R.id.playlistaddtext);
+//        playlistadd = findViewById(R.id.playlistView);
         songNameView = findViewById(R.id.songNameView);
         skipPrevBtn = findViewById(R.id.skipprevBtn);
         skipNextBtn = findViewById(R.id.skipnextBtn);
@@ -209,8 +213,8 @@ public class MainActivity extends AppCompatActivity {
         playlistIcon = findViewById(R.id.playlisticon);
         playlisttotal = findViewById(R.id.playlistTotal);
         recyclerView1 = findViewById(R.id.recyclerview1);
-        menubar = findViewById(R.id.menubar);
-        sortingbar = findViewById(R.id.sorting);
+        menubar = findViewById(R.id.menuBar);
+        sortingbar = findViewById(R.id.sortingBar);
         closeView = findViewById(R.id.closeView);
         search = findViewById(R.id.toolbar);
         addtoplaylist = findViewById(R.id.addmoresongs);
@@ -218,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
         deleteplaylist = findViewById(R.id.deleteplaylist);
         currentPlaylistname = findViewById(R.id.clickedplaylistname);
         addSonglabel = findViewById(R.id.addsonglabel);
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
 
 
         //menu items
@@ -240,6 +245,7 @@ public class MainActivity extends AppCompatActivity {
 
         //player controls
         //playerControls();
+        bottomNavigationView.setOnItemSelectedListener(nav);
 
         //binding the player service and do everything after the binding
         doBindingService();
@@ -253,6 +259,7 @@ public class MainActivity extends AppCompatActivity {
         getPlaylists();
         closeView.setOnClickListener(view -> closeViewing());
         deleteplaylist.setVisibility(View.GONE);
+
     }
 
     private void doBindingService() {
@@ -316,7 +323,6 @@ public class MainActivity extends AppCompatActivity {
         RadioGroup radioGroup = bottomSheetDialog.findViewById(R.id.group2);
         bottomSheetDialog.show();
         showSort(radioGroup);
-
 
     }
 
@@ -875,7 +881,7 @@ public class MainActivity extends AppCompatActivity {
         //allSongs tab
         allSongs.setTextColor(getResources().getColor(R.color.primary_color));
         //playlisttab
-        playlistadd.setVisibility(View.GONE);
+
         playlistAdapter = new PlaylistAdapter(MainActivity.this,allplaylists,allsongs,recyclerView,exoPlayer,nos,search,menubar,sortingbar,closeView,addtoplaylist,
                 songTotal,sorticon,playlistIcon,playlisttotal,bottomsheet,bottomsheetholder,removefromplaylist,deleteplaylist);
        playlist.setOnClickListener(new View.OnClickListener() {
@@ -886,7 +892,6 @@ public class MainActivity extends AppCompatActivity {
                allSongs.setTextColor(getResources().getColor(R.color.white));
                artist.setTextColor(getResources().getColor(R.color.white));
                album.setTextColor(getResources().getColor(R.color.white));
-               playlistadd.setVisibility(View.GONE);
                songTotal.setVisibility(View.GONE);
                sorticon.setVisibility(View.GONE);
                playlistIcon.setVisibility(View.VISIBLE);
@@ -907,7 +912,6 @@ public class MainActivity extends AppCompatActivity {
                playlist.setTextColor(getResources().getColor(R.color.white));
                artist.setTextColor(getResources().getColor(R.color.white));
                album.setTextColor(getResources().getColor(R.color.white));
-               playlistadd.setVisibility(View.GONE);
                playlistIcon.setVisibility(View.GONE);
                playlisttotal.setVisibility(View.GONE);
                songTotal.setVisibility(View.VISIBLE);
@@ -928,7 +932,6 @@ public class MainActivity extends AppCompatActivity {
                 playlist.setTextColor(getResources().getColor(R.color.white));
                 allSongs.setTextColor(getResources().getColor(R.color.white));
                 album.setTextColor(getResources().getColor(R.color.white));
-                playlistadd.setVisibility(View.GONE);
                 playlistIcon.setVisibility(View.GONE);
                 playlisttotal.setVisibility(View.GONE);
                 songTotal.setVisibility(View.GONE);
@@ -950,7 +953,6 @@ public class MainActivity extends AppCompatActivity {
                 playlist.setTextColor(getResources().getColor(R.color.white));
                 allSongs.setTextColor(getResources().getColor(R.color.white));
                 artist.setTextColor(getResources().getColor(R.color.white));
-                playlistadd.setVisibility(View.GONE);
                 playlistIcon.setVisibility(View.GONE);
                 playlisttotal.setVisibility(View.GONE);
                 songTotal.setVisibility(View.GONE);
@@ -1077,6 +1079,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    //Bottom navigationView
+    private final NavigationBarView.OnItemSelectedListener nav = new NavigationBarView.OnItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()){
+                case R.id.musicMenu:
+                    break;
+                case R.id.videoMenu:
+                    Intent intent = new Intent(MainActivity.this, VideoActivity.class);
+                    startActivity(intent);
+                    break;
+            }
+            return true;
+        }
+    };
+
 
     //setting the menu /search
 

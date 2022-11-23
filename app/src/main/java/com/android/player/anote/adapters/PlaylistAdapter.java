@@ -2,6 +2,9 @@ package com.android.player.anote.adapters;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +19,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.player.anote.Playlist;
+import com.android.player.anote.PlaylistActivity;
 import com.android.player.anote.R;
 import com.android.player.anote.Song;
 import com.android.player.anote.sqllite.DatabaseHelper;
@@ -45,6 +49,7 @@ public class PlaylistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
    TextView addtoPlaylist,songtotal,sorticon,playlisttotal,playlisticon,remove,deleteplaylist;
    String clickedplaylist;
    ConstraintLayout bottomsheet,bottomsheetholder;
+   PlaylistActivity playlistActivity;
 
 
     public PlaylistAdapter(Context context, List<Playlist> playlists, List<Song> allsongs, RecyclerView recyclerView,
@@ -94,26 +99,36 @@ public class PlaylistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         viewHolder.itemView.setOnClickListener(view -> {
             namee = "'"+playlist.getPlaylistname()+"'";
             clickedplaylist = playlist.getPlaylistname();
-            if(Objects.equals(playlist.getPlaylistname(), "Favorites")){
-                FavoritesAdapter favoritesAdapter = new FavoritesAdapter(getPlaylistSongs(),context,exoPlayer,nos);
-                recyclerView.setAdapter(favoritesAdapter);
-                playlisticon.setVisibility(View.GONE);
-                playlisttotal.setVisibility(View.GONE);
-                addtoPlaylist.setVisibility(View.GONE);
-            }
-            else if(Objects.equals(playlist.getPlaylistname(), "Most Played")){
-                MostPlayedAdapter mostPlayedAdapter = new MostPlayedAdapter(getPlaylistSongs(),context,exoPlayer,nos);
-                recyclerView.setAdapter((mostPlayedAdapter));
-                playlisticon.setVisibility(View.GONE);
-                playlisttotal.setVisibility(View.GONE);
-                addtoPlaylist.setVisibility(View.GONE);
-            }
-            else{
-                PlaylistSongs playlistSong = new PlaylistSongs(getPlaylistSongs(),exoPlayer,context,nos,clickedplaylist,search,menubar,sortingbar,closeview,addtoPlaylist,songtotal,sorticon,playlisttotal,playlisticon,recyclerView,allsongs,bottomsheet,bottomsheetholder,remove,deleteplaylist);
-                recyclerView.setAdapter(playlistSong);
-                playlisticon.setVisibility(View.GONE);
-                playlisttotal.setVisibility(View.GONE);
-            }
+
+            Intent intent = new Intent(context, PlaylistActivity.class);
+            intent.putExtra("playlistName",playlist.getPlaylistname());
+            Bundle bundle = new Bundle();
+            bundle.putIntegerArrayList("nos", (ArrayList<Integer>) nos);
+            bundle.putParcelableArrayList("allsongs", (ArrayList<? extends Parcelable>) allsongs);
+            intent.putExtras(bundle);
+            context.startActivity(intent);
+
+//
+//            if(Objects.equals(playlist.getPlaylistname(), "Favorites")){
+//                FavoritesAdapter favoritesAdapter = new FavoritesAdapter(getPlaylistSongs(),context,exoPlayer,nos);
+//                recyclerView.setAdapter(favoritesAdapter);
+//                playlisticon.setVisibility(View.GONE);
+//                playlisttotal.setVisibility(View.GONE);
+//                addtoPlaylist.setVisibility(View.GONE);
+//            }
+//            else if(Objects.equals(playlist.getPlaylistname(), "Most Played")){
+//                MostPlayedAdapter mostPlayedAdapter = new MostPlayedAdapter(getPlaylistSongs(),context,exoPlayer,nos);
+//                recyclerView.setAdapter((mostPlayedAdapter));
+//                playlisticon.setVisibility(View.GONE);
+//                playlisttotal.setVisibility(View.GONE);
+//                addtoPlaylist.setVisibility(View.GONE);
+//            }
+//            else{
+//                PlaylistSongs playlistSong = new PlaylistSongs(getPlaylistSongs(),exoPlayer,context,nos,clickedplaylist,search,menubar,sortingbar,closeview,addtoPlaylist,songtotal,sorticon,playlisttotal,playlisticon,recyclerView,allsongs,bottomsheet,bottomsheetholder,remove,deleteplaylist);
+//                recyclerView.setAdapter(playlistSong);
+//                playlisticon.setVisibility(View.GONE);
+//                playlisttotal.setVisibility(View.GONE);
+//            }
 
         });
 

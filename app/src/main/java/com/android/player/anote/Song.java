@@ -1,8 +1,10 @@
 package com.android.player.anote;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Song {
+public class Song implements Parcelable {
     //Members
 
     String title;
@@ -33,6 +35,32 @@ public class Song {
 
 
     //getter
+
+    protected Song(Parcel in) {
+        title = in.readString();
+        uri = in.readParcelable(Uri.class.getClassLoader());
+        artworkUri = in.readParcelable(Uri.class.getClassLoader());
+        size = in.readInt();
+        duration = in.readInt();
+        albumname = in.readString();
+        artistname = in.readString();
+        artistid = in.readInt();
+        albumid = in.readInt();
+        magnitude = in.readInt();
+        addedToFavourites = in.readByte() != 0;
+    }
+
+    public static final Creator<Song> CREATOR = new Creator<Song>() {
+        @Override
+        public Song createFromParcel(Parcel in) {
+            return new Song(in);
+        }
+
+        @Override
+        public Song[] newArray(int size) {
+            return new Song[size];
+        }
+    };
 
     public void increment(){
         magnitude++;
@@ -87,5 +115,23 @@ public class Song {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(title);
+        parcel.writeParcelable(uri, i);
+        parcel.writeParcelable(artworkUri, i);
+        parcel.writeInt(size);
+        parcel.writeInt(duration);
+        parcel.writeString(albumname);
+        parcel.writeString(artistname);
+        parcel.writeInt(artistid);
+        parcel.writeInt(albumid);
+        parcel.writeInt(magnitude);
+        parcel.writeByte((byte) (addedToFavourites ? 1 : 0));
+    }
 }

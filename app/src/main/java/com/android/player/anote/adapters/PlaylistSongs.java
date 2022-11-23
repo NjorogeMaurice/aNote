@@ -31,50 +31,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlaylistSongs extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    List<Song> playlistSongs,allmysongs;
+    List<Song> playlistSongs;
     ExoPlayer exoPlayer;
     Context context;
-    ConstraintLayout playerView;
     List<Integer> nos;
     String namee;
-    androidx.appcompat.widget.Toolbar search;
-    AppBarLayout menubar;
-    AppBarLayout sortingbar;
-    ImageView closeView;
-    List<Song> songs = new ArrayList<>();
-    DatabaseHelper helper;
-    TextView addtoplaylist,songtotal,sorticon,playlisttotal,playlisticon,remove,deleteplaylist;
-    RecyclerView recyclerView;
-    BottomSheetBehavior bottomSheetBehavior;
-    ConstraintLayout bottomsheet,holder1;
-    String songtittle;
     int pos;
 
-    public PlaylistSongs(List<Song> playlistSongs, ExoPlayer exoPlayer, Context context, List<Integer> nos, String namee,
-                         Toolbar search, AppBarLayout menubar, AppBarLayout sortingbar, ImageView closeView,
-                         TextView addtoplaylist,TextView songtotal,TextView sorticon,TextView playlisttotal,TextView playlisticon,
-                         RecyclerView recyclerView,List<Song> allmysongs, ConstraintLayout bottomsheet,ConstraintLayout holder,
-                         TextView remove,TextView deleteplaylist) {
+    public PlaylistSongs(List<Song> playlistSongs, ExoPlayer exoPlayer, Context context, List<Integer> nos)
+                          {
         this.playlistSongs = playlistSongs;
         this.exoPlayer = exoPlayer;
         this.context = context;
         this.nos = nos;
-        this.namee = namee;
-        this.search = search;
-        this.menubar=menubar;
-        this.sortingbar = sortingbar;
-        this.closeView = closeView;
-        this.addtoplaylist = addtoplaylist;
-        this.songtotal = songtotal;
-        this.sorticon=sorticon;
-        this.playlisticon = playlisticon;
-        this.playlisttotal = playlisttotal;
-        this.recyclerView = recyclerView;
-        this.allmysongs = allmysongs;
-        this.bottomsheet = bottomsheet;
-        this.holder1 = holder;
-        this.remove = remove;
-        this.deleteplaylist= deleteplaylist;
     }
 
     @NonNull
@@ -90,40 +59,40 @@ public class PlaylistSongs extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         Song song =playlistSongs.get(position);
         Integer no = nos.get(position);
         PlaylistSongsViewholder viewHolder = (PlaylistSongsViewholder) holder;
-        songtotal.setVisibility(View.GONE);
-        sorticon.setVisibility(View.GONE);
-        playlisttotal.setVisibility(View.GONE);
-        playlisticon.setVisibility(View.GONE);
-        addtoplaylist.setVisibility(View.VISIBLE);
-        deleteplaylist.setVisibility(View.GONE);
-
-
-        if(playlistSongs.size()==0){
-            songtotal.setVisibility(View.GONE);
-            sorticon.setVisibility(View.GONE);
-            playlisttotal.setVisibility(View.GONE);
-            playlisticon.setVisibility(View.GONE);
-            addtoplaylist.setVisibility(View.VISIBLE);
-        }
-
-
-
-
-        addtoplaylist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                search.setVisibility(View.GONE);
-                sortingbar.setVisibility(View.GONE);
-                closeView.setVisibility(View.VISIBLE);
-                menubar.setVisibility(View.GONE);
-
-
-
-                AddToPlaylist addToPlaylist = new AddToPlaylist(allmysongs,context,playlistSongs,namee);
-                recyclerView.setAdapter(addToPlaylist);
-
-            }
-        });
+//        songtotal.setVisibility(View.GONE);
+//        sorticon.setVisibility(View.GONE);
+//        playlisttotal.setVisibility(View.GONE);
+//        playlisticon.setVisibility(View.GONE);
+//        addtoplaylist.setVisibility(View.VISIBLE);
+//        deleteplaylist.setVisibility(View.GONE);
+//
+//
+//        if(playlistSongs.size()==0){
+//            songtotal.setVisibility(View.GONE);
+//            sorticon.setVisibility(View.GONE);
+//            playlisttotal.setVisibility(View.GONE);
+//            playlisticon.setVisibility(View.GONE);
+//            addtoplaylist.setVisibility(View.VISIBLE);
+//        }
+//
+//
+//
+//
+//        addtoplaylist.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                search.setVisibility(View.GONE);
+//                sortingbar.setVisibility(View.GONE);
+//                closeView.setVisibility(View.VISIBLE);
+//                menubar.setVisibility(View.GONE);
+//
+//
+//
+//                AddToPlaylist addToPlaylist = new AddToPlaylist(allmysongs,context,playlistSongs,namee);
+//                recyclerView.setAdapter(addToPlaylist);
+//
+//            }
+//        });
 
 
 

@@ -58,62 +58,14 @@
             android:text="Play next"
             android:layout_marginStart="@dimen/md"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/set_ringtone_layout"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:layout_constraintTop_toBottomOf="@id/play_next_layout"
-        android:layout_margin="@dimen/md">
-        <ImageView
-            android:id="@+id/set_ringtone"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_set_ringtone"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/set_ringtone_text"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@id/set_ringtone"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Set as ringtone"
-            android:layout_marginStart="@dimen/md"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/add_playlist_layout"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:layout_constraintTop_toBottomOf="@id/set_ringtone_layout"
-        android:layout_margin="@dimen/md">
-        <ImageView
-            android:id="@+id/add_playlist"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_playlist_add"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/add_playlist_text"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@id/add_playlist"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Add to playlist"
-            android:layout_marginStart="@dimen/md"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/add_favourite_layout"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        app:layout_constraintTop_toBottomOf="@id/add_playlist_layout"
+        app:layout_constraintTop_toBottomOf="@id/play_next_layout"
         android:layout_margin="@dimen/md">
         <TextView
             android:id="@+id/add_favourite"
@@ -133,36 +85,12 @@
             android:text="Add to Favorite"
             android:layout_marginStart="@dimen/md"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/song_delete_layout"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:layout_constraintTop_toBottomOf="@id/add_favourite_layout"
-        android:layout_margin="@dimen/md">
-        <ImageView
-            android:id="@+id/song_delete"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_song_delete"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/song_delete_text"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@id/song_delete"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Delete"
-            android:layout_marginStart="@dimen/md"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/file_info_layout"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        app:layout_constraintTop_toBottomOf="@id/song_delete_layout"
+        app:layout_constraintTop_toBottomOf="@id/add_favourite_layout"
         android:layout_margin="@dimen/md">
         <ImageView
             android:id="@+id/file_info"

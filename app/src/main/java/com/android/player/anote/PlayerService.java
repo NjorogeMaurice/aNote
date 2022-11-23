@@ -143,12 +143,12 @@ public class PlayerService extends Service {
         public Bitmap getCurrentLargeIcon(Player player, PlayerNotificationManager.BitmapCallback callback) {
             //try creating an image view
             ImageView view = new ImageView(getApplicationContext());
-            view.setImageURI(player.getCurrentMediaItem().mediaMetadata.artworkUri);
+            view.setImageDrawable(getResources().getDrawable(R.drawable.music));
 
 
             BitmapDrawable bitmapDrawable= (BitmapDrawable) view.getDrawable();
             if(bitmapDrawable == null){
-                bitmapDrawable = (BitmapDrawable) ContextCompat.getDrawable(getApplicationContext(),R.drawable.music);
+                bitmapDrawable = (BitmapDrawable) ContextCompat.getDrawable(getApplicationContext(), R.drawable.music);
             }
 
 
